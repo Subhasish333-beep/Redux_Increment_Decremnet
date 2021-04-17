@@ -12,8 +12,8 @@ const App =()=>{
     usedispatch(fetchTodos());
   },[])
  
-  const {todo} = state;
-  console.log(todo,"app.js")
+  const {todos} = state;
+  console.log(todos)
   
   return(
     <div>
@@ -26,12 +26,12 @@ const App =()=>{
           </tr>
         </thead>
         <tbody>
-          {todo?.map(item=>{
+          {todos?.map(todo=>{
             return(
               <tr>
-                <td>{item?.userId}</td>
-                <td>{item?.id}</td>
-                <td>{item?.title}</td>
+                <td>{todo?.userId}</td>
+                <td>{todo?.id}</td>
+                <td>{todo?.title}</td>
               </tr>
             )
           })}

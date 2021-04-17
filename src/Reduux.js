@@ -55,10 +55,10 @@ import { applyMiddleware, combineReducers, createStore } from "redux"
 import thunk from "redux-thunk"
 
 const todoReducer=(state={
-   todo: []
+   todos: []
 },action)=>{
     switch(action.type){
-        case "FETCH": return {todo: action.payload}
+        case "FETCH": return {todos: action.payload}
         default : return state
     }
 }

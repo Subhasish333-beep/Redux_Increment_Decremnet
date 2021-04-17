@@ -1,19 +1,46 @@
-import './App.css';
-import {useSelector, useDispatch} from 'react-redux';
-import {Increment, Decrement} from './Reduux';
+import React, { Component, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {doIncrement, doDecrement} from './Reduux'
+// import Apps from './Apps'
+import { Provider } from 'react-redux';
+import {fetchTodos} from './Reduux'
 
-function App() {
-  const state = useSelector((state)=>state)
-  const dispatch = useDispatch();
-  // console.log(state)
-  const {value} = state;
-  return (
-    <div className="App">
-      <h1>Counter:{value}</h1>
-      <button onClick = { () => (dispatch(Increment()))}>Incremnet</button>
-      <button onClick = { () => (dispatch(Decrement()))}>Decremnet</button>
+
+const App =()=>{
+  const state=useSelector((state)=>state)
+  
+  const usedispatch=useDispatch();
+  useEffect(()=>{
+    usedispatch(fetchTodos());
+  },[])
+ 
+  const {todo} = state;
+  console.log(todo,"app.js")
+  
+  return(
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <td>UserId</td>
+            <td>Id</td>
+            <td>Title</td>
+          </tr>
+        </thead>
+        <tbody>
+          {todo?.map(item=>{
+            return(
+              <tr>
+                <td>{item?.userId}</td>
+                <td>{item?.id}</td>
+                <td>{item?.title}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
     </div>
-  );
+  )
 }
+export  default App;
 
-export default App;

@@ -1,8 +1,6 @@
 import React, { Component, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {doIncrement, doDecrement} from './Reduux'
-// import Apps from './Apps'
-import { Provider } from 'react-redux';
 import {fetchTodos} from './Reduux'
 
 

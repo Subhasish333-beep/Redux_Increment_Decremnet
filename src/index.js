@@ -5,7 +5,7 @@ import App from './App';
 import "./Reduux"
 import "./Toolkit"
 import {Provider} from 'react-redux';
-import {store} from './ToDos';
+import {store} from './Reduux';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
